@@ -1,19 +1,22 @@
 {
-  "name": "node-do-api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "do-api",
+  "version": "0.0.0",
+  "description": "DigitalOcean API v2.0 for Node.js",
   "dependencies": {
-    "xtend": "^4.0.0",
-    "request": "^2.53.0"
+    "config": "^1.12.0",
+    "request": "^2.53.0",
+    "xtend": "^4.0.0"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "mocha": "^2.1.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/pascalbertschi/node-do-api.git"
+  },
+  "scripts": {
+    "test": "mocha"
   },
   "keywords": [
     "node",
