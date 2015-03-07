@@ -142,8 +142,8 @@ exports.getDropletActions = function () {
 
 exports.deleteDroplet = wrapper.deleteDroplet;
 
-exports.getDropletNeighbors = function () {
-    return wrapper.getDropletNeighbors()
+exports.getDropletNeighbors = function (droplet_id) {
+    return wrapper.getDropletNeighbors(droplet_id)
         .then(function (body) {
             return exports.pageCrawler(body, "droplets");
         });
