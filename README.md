@@ -7,7 +7,7 @@ DigitalOcean API v2.0 for Node.js
 
 ## Installation
 ```
-npm install do-api
+npm install do-api --save
 ```
 
 ## Configuration
@@ -103,54 +103,73 @@ api.deleteDomainRecord(domain_name, record_id)
   });
 ```
 ### Droplets
+#### Get your droplets
 ```js
 api.getDroplets()
   .then(function(droplets) {
     ...
   });
-  
+```
+#### Get droplet by id
+```js
 api.getDroplet(domain_id)
   .then(function(droplet) {
     ...
   });
-  
+```
+#### Create droplet
+```js  
 api.addDroplet(name, region, size, image, ssh_keys, backups, ipv6, user_data, private_networking)
   .then(function(droplet) {
     ...
   });
-  
+```
+#### Delete droplet by id
+```js  
+api.deleteDroplet(droplet_id)
+  .then(function() {
+    ...
+  });
+```
+#### Get available droplet kernels
+```js  
 api.getDropletKernels(droplet_id)
   .then(function(kernels) {
     ...
   });
-  
+```
+#### Get droplet snapshots
+```js  
 api.getDropletSnapshots(droplet_id)
   .then(function(snapshots) {
     ...
   });
-  
+```
+#### Get droplet backups
+```js  
 api.getDropletBackups(droplet_id)
   .then(function(backups) {
     ...
   });
-  
+```
+#### Get droplet actions
+```js  
 api.getDropletActions(droplet_id)
   .then(function(actions) {
     ...
   });
-  
+```
+#### Get droplet neighbors
+```js  
 api.getDropletNeighbors(droplet_id)
   .then(function(droplets) {
     ...
   });
-  
+```
+#### Get neighbors
+```js  
 api.getNeighbors()
   .then(function(neighbors) {
-    ...
-  });
-  
-api.deleteDroplet(droplet_id)
-  .then(function() {
     ...
   });
 ```
