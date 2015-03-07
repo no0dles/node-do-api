@@ -3,21 +3,11 @@ var req = require('./request');
 var exports = module.exports = {};
 
 exports.getAccount = function() {
-  return req.get('accountsss');
+  return req.get('account');
 };
 
-exports.getActions = function(id, status, type, started_at, completed_at, resource_id, resource_type, region, region_slug) {
-  return req.getWithParameter('actions', {
-    id: id,
-    status: status,
-    type: type,
-    started_at: started_at,
-    completed_at: completed_at,
-    resource_id: resource_id,
-    resource_type: resource_type,
-    region: region,
-    region_slug: region_slug
-  });
+exports.getActions = function() {
+  return req.get('actions', true);
 };
 
 exports.getAction = function(action_id) {
@@ -25,10 +15,10 @@ exports.getAction = function(action_id) {
 };
 
 exports.getDomains = function() {
-  return req.get('domains/');
+  return req.get('domains');
 };
 
-exports.addDomains = function(name, ip_address) {
+exports.addDomain = function(name, ip_address) {
   return req.post('domains/', {
     name: name,
     ip_address: ip_address
@@ -44,7 +34,7 @@ exports.deleteDomain = function(name) {
 };
 
 exports.getDomainRecords = function(name) {
-  return req.get('domains/' + name + '/records');
+  return req.get('domains/' + name + '/records', true);
 };
 
 exports.addDomainRecord = function(domain_name, type, name, data, priority, port, weight) {
@@ -74,7 +64,7 @@ exports.updateDomainRecord = function(domain_name, record_id, type, name, data, 
   });
 };
 
-exports.deleteDomain = function(domain_name, record_id) {
+exports.deleteDomainRecord = function(domain_name, record_id) {
   return req.del('domains/' + domain_name + '/records/' + record_id);
 };
 
@@ -97,23 +87,23 @@ exports.getDroplet = function(droplet_id) {
 };
 
 exports.getDroplets = function() {
-  return req.get('droplets');
+  return req.get('droplets', true);
 };
 
 exports.getDropletKernels = function(droplet_id) {
-  return req.get('droplets/' + droplet_id + '/kernels');
+  return req.get('droplets/' + droplet_id + '/kernels', true);
 };
 
 exports.getDropletSnapshots = function(droplet_id) {
-  return req.get('droplets/' + droplet_id + '/snapshots');
+  return req.get('droplets/' + droplet_id + '/snapshots', true);
 };
 
 exports.getDropletBackups = function(droplet_id) {
-  return req.get('droplets/' + droplet_id + '/backups');
+  return req.get('droplets/' + droplet_id + '/backups', true);
 };
 
 exports.getDropletActions = function(droplet_id) {
-  return req.get('droplets/' + droplet_id + '/actions');
+  return req.get('droplets/' + droplet_id + '/actions', true);
 };
 
 exports.deleteDroplet = function(droplet_id) {
@@ -121,15 +111,15 @@ exports.deleteDroplet = function(droplet_id) {
 };
 
 exports.getDropletNeighbors = function(droplet_id) {
-  return req.get('droplets/' + droplet_id + '/neighbors');
+  return req.get('droplets/' + droplet_id + '/neighbors', true);
 };
 
 exports.getNeighbors = function() {
-  return req.get('reports/droplet_neighbors');
+  return req.get('reports/droplet_neighbors', true);
 };
 
 exports.getDropletUpgrades = function() {
-  return req.get('droplet_upgrades');
+  return req.get('droplet_upgrades', true);
 };
 
 exports.disableBackupOnDroplet = function(droplet_id) {
@@ -239,19 +229,23 @@ exports.getDropletAction = function(droplet_id, action_id) {
 };
 
 exports.getImages = function() {
-  return req.get('images');
+  return req.get('images', true);
 };
 
 exports.getDistributionImages = function() {
-  return req.get('images?type=distribution');
+  return req.get('images?type=distribution', true);
 };
 
 exports.getApplicationImages = function() {
-  return req.get('images?type=application');
+  return req.get('images?type=application', true);
 };
 
 exports.getUserImages = function() {
-  return req.get('images?private=true');
+  return req.get('images?private=true', true);
+};
+
+exports.getImage = function (image_id) {
+  return req.get('images/'+ image_id);
 };
 
 exports.updateImage = function(image_id, name) {
@@ -272,11 +266,11 @@ exports.transferImage = function(image_id, region) {
 };
 
 exports.getImageAction = function(image_id, action_id) {
-  return req.get('images/' + image_id + '/actions/' + action_id);
+  return req.get('images/' + image_id + '/actions/' + action_id, true);
 };
 
 exports.getSSHKeys = function() {
-  return req.get('account/keys');
+  return req.get('account/keys', true);
 };
 
 exports.addSSHKeys = function(name, public_key) {
@@ -290,7 +284,7 @@ exports.getSSHKey = function(key_id) {
   return req.get('account/keys/' + key_id);
 };
 
-exports.addSSHKeys = function(key_id, name) {
+exports.updateSSHKey = function(key_id, name) {
   return req.put('account/keys/' + key_id, {
     name: name
   });
@@ -301,9 +295,9 @@ exports.deleteSSHKeys = function(key_id) {
 };
 
 exports.getRegions = function() {
-  return req.get('account/regions');
+  return req.get('account/regions', true);
 };
 
 exports.getSizes = function() {
-  return req.get('account/sizes');
+  return req.get('account/sizes', true);
 };

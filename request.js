@@ -6,6 +6,8 @@ var Q = require('q');
 
 var exports = module.exports = {};
 
+exports.per_page = 200;
+
 exports.request = function(options) {
   var deferred = Q.defer();
 
@@ -18,12 +20,21 @@ exports.request = function(options) {
 
   options = extend(options, credentials);
 
-  options.url = 'https://api.digitalocean.com/v2/' + options.url;
+  if(options.url.indexOf('http') == -1) {
+    options.url = 'https://api.digitalocean.com/v2/' + options.url;
+  }
+
+  console.log(options.url);
 
   request(options, function(error, response, body) {
-    if(error || response.statusCode >= 400) {
-
-      deferred.reject(response.statusCode, error);
+    if(error) {
+      deferred.reject(error);
+    } else if(response.statusCode >= 400) {
+      var e = new Error(body["message"]);
+      e.code = response.statusCode;
+      e.errno = response.statusCode;
+      e.syscall = body["id"];
+      deferred.reject(e);
     } else {
       deferred.resolve(body)
     }
@@ -32,23 +43,14 @@ exports.request = function(options) {
   return deferred.promise;
 };
 
-exports.getWithParameter = function(url, parameters) {
-  for(var k in parameters){
-    if(parameters.hasOwnProperty(k) && !parameters[k]){
-      delete parameters[k];
+exports.get = function(url, pages) {
+  if(pages) {
+    if(url.indexOf('?') == -1) {
+      url += '?';
     }
+    url += 'per_page=' + exports.per_page;
   }
 
-  var query_string = qs.stringify(parameters);
-
-  if(query_string.length > 0) {
-    url = url + '?' + query_string;
-  }
-
-  return exports.get(url);
-};
-
-exports.get = function(url) {
   return exports.request({
     url: url,
     method: 'GET'
