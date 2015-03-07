@@ -12,7 +12,7 @@ npm install do-api --save
 
 ## Configuration
 Create a api token on digitalocean and save it under `config/Default.json`
-```
+```json
 {
   "Token": "y0wCcq9UvKuSHm39q5FQqbT6K8oU7o1D2Fc723658ds1DHyXzkztt0sFQRG8JplK"
 }
