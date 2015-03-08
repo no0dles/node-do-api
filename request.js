@@ -19,7 +19,7 @@ exports.request = function(options) {
 
   options = extend(options, credentials);
 
-  if(options.url.indexOf('http') == -1) {
+  if(options.url.indexOf('http') === -1) {
     options.url = 'https://api.digitalocean.com/v2/' + options.url;
   }
 
@@ -43,7 +43,7 @@ exports.request = function(options) {
 
 exports.get = function(url, pages) {
   if(pages) {
-    if(url.indexOf('?') == -1) {
+    if(url.indexOf('?') === -1) {
       url += '?';
     } else {
       url += '&';
