@@ -2,7 +2,7 @@
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
 [![Codacy Badge](https://www.codacy.com/project/badge/e03a1c9b84c2447b890c11e8f13978ad)](https://www.codacy.com/public/pascalbertschi/node-do-api)
-[![Gratipay](https://img.shields.io/gratipay/JSFiddle.svg)](https://github.com/pascalbertschi/node-do-api)
+[![Gratipay](https://img.shields.io/gratipay/node-do-api.svg)](https://github.com/pascalbertschi/node-do-api)
 
 DigitalOcean API v2.0 for Node.js
 
