@@ -23,6 +23,7 @@ exports.request = function(options) {
     options.url = 'https://api.digitalocean.com/v2/' + options.url;
   }
 
+
   request(options, function(error, response, body) {
     if(error) {
       deferred.reject(error);
