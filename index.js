@@ -330,13 +330,6 @@ exports.transferImage = function (image_id, region) {
         });
 };
 
-exports.getImageAction = function (image_id, action_id) {
-    return wrapper.getImageAction(image_id, action_id)
-        .then(function (body) {
-            return body["action"];
-        });
-};
-
 exports.getSSHKeys = function() {
     return wrapper.getSSHKeys()
         .then(function (body) {
@@ -344,8 +337,8 @@ exports.getSSHKeys = function() {
         });
 };
 
-exports.addSSHKeys = function (name, public_key) {
-    return wrapper.addSSHKeys(name, public_key)
+exports.addSSHKey = function (name, public_key) {
+    return wrapper.addSSHKey(name, public_key)
         .then(function (body) {
             return body["ssh_key"];
         });
@@ -365,7 +358,7 @@ exports.updateSSHKey = function (key_id, name) {
         });
 };
 
-exports.deleteSSHKeys = wrapper.deleteSSHKeys;
+exports.deleteSSHKey = wrapper.deleteSSHKey;
 
 exports.getRegions = function() {
     return wrapper.getRegions()

@@ -273,7 +273,7 @@ exports.getSSHKeys = function() {
   return req.get('account/keys', true);
 };
 
-exports.addSSHKeys = function(name, public_key) {
+exports.addSSHKey = function(name, public_key) {
   return req.post('account/keys', {
     name: name,
     public_key: public_key
@@ -290,7 +290,7 @@ exports.updateSSHKey = function(key_id, name) {
   });
 };
 
-exports.deleteSSHKeys = function(key_id) {
+exports.deleteSSHKey = function(key_id) {
   return req.del('account/keys/' + key_id);
 };
 

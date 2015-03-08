@@ -1,7 +1,6 @@
 var request = require('request');
 var extend = require('xtend');
 var config = require('config');
-var qs = require('querystring');
 var Q = require('q');
 
 var exports = module.exports = {};
@@ -24,8 +23,6 @@ exports.request = function(options) {
     options.url = 'https://api.digitalocean.com/v2/' + options.url;
   }
 
-  console.log(options.url);
-
   request(options, function(error, response, body) {
     if(error) {
       deferred.reject(error);
@@ -47,6 +44,8 @@ exports.get = function(url, pages) {
   if(pages) {
     if(url.indexOf('?') == -1) {
       url += '?';
+    } else {
+      url += '&';
     }
     url += 'per_page=' + exports.per_page;
   }
