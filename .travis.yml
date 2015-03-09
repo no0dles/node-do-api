@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "0.10"
+  - "0.8"
+  - "0.6"
+deploy:
+  provider: npm
+  email: "pascal@bloob.io"
+  api_key: "YOUR API KEY"
+  on:
+    tags: true
