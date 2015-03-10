@@ -8,8 +8,5 @@ deploy:
   api_key: YOUR API KEY
   on:
     tags: true
-env:
-  global:
-    - secure: "Lh9Ve5SyaOOPy1YGxL/wB8JPXxjIzwhoNHMZBq1opsCsv7+3EZtJzUq4NrLNdMSD1/zjg
-  GXoXHxEdjCnih9xuUnHeq2z6IPasWsDzykQLd/tSY7OHQBrVQbaHAw3kiPFOMW2TiROpqK7sMQkfgHbv
-  wsdkGxLwQnWcKv/WraMfCM="
+dd:
+  secure: Z77ExaJPRC30vZLBZLyl0WFWxVl0xwBuAGQG+q6+lzJxqLr9WXNeFFeOP/DglbKtWHax0+niMp3UD054V3kTT2KfY3lCFwkjK0LhBefHENiwu9gVzigMxQCvV09/CKsktziKZjan8Tgj1Co94LSJRakNSgU3jejW4PF0lK5tUNQ=
