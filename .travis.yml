@@ -5,8 +5,11 @@ node_js:
 deploy:
   provider: npm
   email: pascal@bloob.io
-  api_key: YOUR API KEY
+  api_key:
+    secure: A4AI1TUliX+5WbVMsN+rqb7aitFt/U/SjsjlZs4T+HyxGTK0Az5n+BDEWzt8P6LbpR37H1uZ0cR8QaAoXW10NgdcV6auwr/1OFa1S29i2Q9BHBC1TH2b8NhCYyvmrjB9tw75XXVI94AG2PjCTQ4XokCqNgcs/NO0rpacSx5UgEg=
   on:
     tags: true
-dd:
-  secure: ZceJe6+9nY06p0BCcg5FY06Vb2PyupmD7KmfTlgNdXjohBCRhlLi9grHShnQkYIH2Tk4wdyTgftHIjwOoYj8ZI3W1JZH3+BOV1WXIGZ42C+DDHRL1OA0ZDVyUBCd+bgUYRN1iZ+h/tg5Ix6aYm/qEM+wvB5dAzmuBVs/z2VnZWM=
+env:
+  global:
+    NODE_CONFIG:
+      secure: Et2UGffNPeXnodb16dSnFsd9wlr9NSlscR4fbmYbYUMov5apNW516ViQHUk6DI1yL/bqOHSXYAU7/UAp9vE0h4UzY2d9g66iXsurL44U2LZLTdqAnTHq6h+IVEAZ1Uc/R/BfnHjX58IOfqY8sZQtu0oj1YFYC7e9ONJC/lkfa7Q=
