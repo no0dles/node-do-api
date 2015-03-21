@@ -295,9 +295,9 @@ exports.deleteSSHKey = function(key_id) {
 };
 
 exports.getRegions = function() {
-  return req.get('account/regions', true);
+  return req.get('regions/', true);
 };
 
 exports.getSizes = function() {
-  return req.get('account/sizes', true);
+  return req.get('sizes/', true);
 };
