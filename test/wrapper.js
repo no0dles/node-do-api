@@ -25,6 +25,8 @@ describe('getAccount', function () {
 });
 
 describe('getActions', function () {
+    this.timeout(15000);
+
     var error, content;
 
     before(function(done) {
@@ -56,6 +58,8 @@ describe('getActions', function () {
 });
 
 describe('getAction', function () {
+    this.timeout(15000);
+
     var error, content;
 
     before(function(done) {
@@ -105,4 +109,59 @@ describe('getDomains', function () {
     it('domain should contain name', function () { should.exist(content.domains[0].name); });
     it('domain should contain ttl', function () { should.exist(content.domains[0].ttl); });
     it('domain should contain zone_file', function () { should.exist(content.domains[0].zone_file); });
+});
+
+
+describe('getSizes', function () {
+  var error, content;
+
+  before(function(done) {
+    wrapper.getSizes().then(function (cont) {
+      content = cont;
+    }).fail(function (err) {
+      error = err;
+    }).done(function () {
+      done();
+    });
+  });
+
+  it('error should not exist', function () { should.not.exist(error); });
+  it('content should exist', function () { should.exist(content); });
+  it('content should contain sizes', function () { should.exist(content.sizes); });
+  it('content should contain links', function () { should.exist(content.links); });
+  it('content should contain meta', function () { should.exist(content.meta); });
+  it('size should contain slug', function () { should.exist(content.sizes[0].slug); });
+  it('size should contain memory', function () { should.exist(content.sizes[0].memory); });
+  it('size should contain vcpus', function () { should.exist(content.sizes[0].vcpus); });
+  it('size should contain disk', function () { should.exist(content.sizes[0].disk); });
+  it('size should contain transfer', function () { should.exist(content.sizes[0].transfer); });
+  it('size should contain price_monthly', function () { should.exist(content.sizes[0].price_monthly); });
+  it('size should contain price_hourly', function () { should.exist(content.sizes[0].price_hourly); });
+  it('size should contain regions', function () { should.exist(content.sizes[0].regions); });
+  it('size should contain available', function () { should.exist(content.sizes[0].available); });
+});
+
+describe('getRegions', function () {
+  var error, content;
+
+  before(function(done) {
+    wrapper.getRegions().then(function (cont) {
+      content = cont;
+    }).fail(function (err) {
+      error = err;
+    }).done(function () {
+      done();
+    });
+  });
+
+  it('error should not exist', function () { should.not.exist(error); });
+  it('content should exist', function () { should.exist(content); });
+  it('content should contain regions', function () { should.exist(content.regions); });
+  it('content should contain links', function () { should.exist(content.links); });
+  it('content should contain meta', function () { should.exist(content.meta); });
+  it('region should contain name', function () { should.exist(content.regions[0].name); });
+  it('region should contain slug', function () { should.exist(content.regions[0].slug); });
+  it('region should contain sizes', function () { should.exist(content.regions[0].sizes); });
+  it('region should contain features', function () { should.exist(content.regions[0].features); });
+  it('region should contain available', function () { should.exist(content.regions[0].available); });
 });

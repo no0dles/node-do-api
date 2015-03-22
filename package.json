@@ -1,6 +1,6 @@
 {
   "name": "do-api",
-  "version": "0.0.4a",
+  "version": "0.0.5",
   "description": "DigitalOcean API v2.0 for Node.js",
   "main": "index",
   "dependencies": {
