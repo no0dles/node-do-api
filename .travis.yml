@@ -10,6 +10,5 @@ deploy:
   on:
     tags: true
 env:
-  global:
-    NODE_CONFIG:
-      secure: DXLaxzogSl2onCoGd59mcW19kilYyHBEvh4ZPEasw/YRd2Om1BNB7kPSasqkHJ1QqkVyE3YidvcX45gv1rQpJ/FM7/gY+uVXGpRnrUSqXongZMV64PcmK/IrAslqOWUfLktYlESP70xItzE27G4Mp2vnNZxJxo6Ss+a1Z4r40vs=
+  NODE_CONFIG:
+    secure: "bw+tkEB9FvCYD0UeYd7b6VDQpxEReRrtbkrbtY/VgIhtOajp7v2+wAgKSzC5I2SZhY6Mr4RA7dFHgSHU9b6vQ4ReRHctX7kx4kW2ChcHPUDdyHh0k5pIulfeXgWjEyp4zl7swcTw/jmjcNbSX7Qpa7fD8Boeypt9h0ERXFITW9E="
